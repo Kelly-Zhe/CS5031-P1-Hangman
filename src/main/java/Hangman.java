@@ -1,51 +1,49 @@
 import java.util.Scanner;
 
 public class Hangman {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        GameState gameState = null;
+        CommandOpts opts;
 
-	static void doStuff(Scanner sc, CommandOpts opts, GameState g) {
+        opts = new CommandOpts(args);
 
-		boolean correct;
+        doStuff(sc, opts, gameState);
+    }
 
-		if (opts.wordsource == "") {
+    static void doStuff(Scanner sc, CommandOpts opts, GameState gameState) {
 
-			System.out.println("  1. Counties");
-			System.out.println("  2. Countries");
-			System.out.println("  3. Cities");
+        boolean correct;
 
-			System.out.print("Pick a category:");
+        if (opts.wordsource == "") {
 
-			g = new GameState(Words.randomWord(sc.nextInt()), opts.maxguesses, opts.maxhints);
-		} else {
-			g = new GameState(Words.randomWord(opts.wordsource), opts.maxguesses, opts.maxhints);
-		}
+            System.out.println("  1. Counties");
+            System.out.println("  2. Countries");
+            System.out.println("  3. Cities");
 
-		while (!g.won() && !g.lost()) {
-			g.showWord(g.word);
+            System.out.print("Pick a category:");
 
-			System.out.println("Guesses remaining: " + g.wrong);
+            gameState = new GameState(Words.randomWord(sc.nextInt()), opts.maxguesses, opts.maxhints);
+        } else {
+            gameState = new GameState(Words.randomWord(opts.wordsource), opts.maxguesses, opts.maxhints);
+        }
 
-			correct = g.guessLetter();
+        while (!gameState.won() && !gameState.lost()) {
+            gameState.showWord(gameState.word);
 
-			if (correct) System.out.println("Good guess!");
-			if (!correct) System.out.println("Wrong guess!");
-		}
+            System.out.println("Guesses remaining: " + gameState.wrong);
 
-		if (g.won()) {
-			System.out.println("Well done!");
-			System.out.println("You took " + g.g + " guesses");
-		} else {
-			System.out.println("You lost! The word was " + g.word);
-		}
-	}
+            correct = gameState.guessLetter();
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		GameState g = null;
-		CommandOpts opts;
+            if (correct) System.out.println("Good guess!");
+            if (!correct) System.out.println("Wrong guess!");
+        }
 
-		opts = new CommandOpts(args);
-
-		doStuff(sc, opts, g);
-
-	}
+        if (gameState.won()) {
+            System.out.println("Well done!");
+            System.out.println("You took " + gameState.GuessesTook + " guesses");
+        } else {
+            System.out.println("You lost! The word was " + gameState.word);
+        }
+    }
 }
