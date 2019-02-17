@@ -6,11 +6,11 @@ public class CommandOptsTest {
 
 	@Test
 	public void optionsTest() {
-		String[] args = { "--guesses", "2", "--hints", "4", "words.txt" };
+		String[] args = { "--guesses", "2", "--hints", "4", "wordSource.txt" };
 		CommandOpts opts = new CommandOpts(args);
 		assertEquals(opts.maxguesses, 2);
 		assertEquals(opts.maxhints, 4);
-		assertEquals(opts.wordsource, "words.txt");
+		assertEquals(opts.wordsource, "wordSource.txt");
 	}
 	@Test(expected = NumberFormatException.class)
 	public void optionsFailTest(){

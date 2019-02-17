@@ -25,7 +25,7 @@ public class Hangman {
             System.out.print("Pick a category:");
             String word = null;
             int category;
-            while (true){
+            while (word == null){
                 try {
                     category = sc.nextInt();
                     if (category > 0 && category < 4){
@@ -36,6 +36,7 @@ public class Hangman {
                     }
                 }catch (InputMismatchException e){
                     System.out.println("please enter valid number(1-3).");
+                    sc.nextLine();
                 }
             }
 

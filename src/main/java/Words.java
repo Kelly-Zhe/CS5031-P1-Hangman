@@ -54,4 +54,29 @@ public class Words {
             return "";
         }
     }
+
+    public static int getCounties() {
+        return 1;
+    }
+
+    public static int getCountries() {
+        return 2;
+    }
+
+    public static int getCities() {
+        return 3;
+    }
+
+    public String[] getCountiesList() {
+        return countiesList.clone();
+    }
+
+    public String[] getCountriesList() {
+        return countriesList.clone();
+    }
+
+    public String[] getCitiesList() {
+        return citiesList.clone();
+    }
+
 }

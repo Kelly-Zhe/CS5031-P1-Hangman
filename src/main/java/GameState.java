@@ -11,8 +11,8 @@ public class GameState {
     public int GuessesWrong;//remaining guess
     public int HintsLeft;//hints left
 
-    ArrayList<Character> guessedLetter;
-    ArrayList<Character> notGuessedLetter;
+    ArrayList<Character> guessedLetter;//got
+    ArrayList<Character> notGuessedLetter;//not
     ArrayList<Character> hintsLetter;
 
     public Scanner sc = new Scanner(System.in).useDelimiter("\n");
