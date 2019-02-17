@@ -1,15 +1,12 @@
-import org.junit.Rule;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.*;
 
-public class GameStateTest {
+public class gameStateTest {
 
 //    String dundee = "Dundee";
 //    String edinburgh = "Edinburgh";
@@ -56,7 +53,7 @@ public class GameStateTest {
 //        CommandOpts opts = new CommandOpts(new String[]{});
 //        Words words = new Words();
         GameState gameState = new GameState("England", 10, 0);
-        gameState.GuessesWrong = 0;
+        gameState.guessesWrong = 0;
         assertTrue(gameState.lost());
     }
 }

@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -36,8 +37,9 @@ public class Words {
         boolean valid;
 
         try {
-            FileReader file = new FileReader(wordsource);
-            BufferedReader reader = new BufferedReader(file);
+            //FileReader file = new FileReader(wordsource);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(wordsource), StandardCharsets.UTF_8));
+            // BufferedReader reader = new BufferedReader(file);
             while ((line = reader.readLine()) != null) {
                 Matcher matcher = p.matcher(line);
                 valid = matcher.matches();

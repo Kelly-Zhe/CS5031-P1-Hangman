@@ -3,16 +3,16 @@ import java.util.Scanner;
 
 public class Hangman {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        GameState gameState = null;
+        Scanner sc = new Scanner(System.in, "UTF-8");
+        GameState gamestate = null;
         CommandOpts opts;
 
         opts = new CommandOpts(args);
 
-        doStuff(sc, opts, gameState);
+        doStuff(sc, opts, gamestate);
     }
 
-    static void doStuff(Scanner sc, CommandOpts opts, GameState gameState) {
+    static void doStuff(Scanner sc, CommandOpts opts, GameState gamestate) {
 
         boolean correct;
 
@@ -40,27 +40,27 @@ public class Hangman {
                 }
             }
 
-            gameState = new GameState(word, opts.maxguesses, opts.maxhints);
+            gamestate = new GameState(word, opts.maxguesses, opts.maxhints);
         } else {
-            gameState = new GameState(Words.randomWord(opts.wordsource), opts.maxguesses, opts.maxhints);
+            gamestate = new GameState(Words.randomWord(opts.wordsource), opts.maxguesses, opts.maxhints);
         }
 
-        while (!gameState.won() && !gameState.lost()) {
-            gameState.showWord(gameState.word);
+        while (!gamestate.won() && !gamestate.lost()) {
+            gamestate.showWord(gamestate.word);
 
-            System.out.println("Guesses remaining: " + gameState.GuessesWrong);
+            System.out.println("Guesses remaining: " + gamestate.guessesWrong);
 
-            correct = gameState.guessLetter();
+            correct = gamestate.guessLetter();
 
             if (correct) System.out.println("Good guess!");
             if (!correct) System.out.println("Wrong guess!");
         }
 
-        if (gameState.won()) {
+        if (gamestate.won()) {
             System.out.println("Well done!");
-            System.out.println("You took " + gameState.GuessesTook + " guesses");
+            System.out.println("You took " + gamestate.guessesTook + " guesses");
         } else {
-            System.out.println("You lost! The word was " + gameState.word);
+            System.out.println("You lost! The word was " + gamestate.word);
         }
     }
 }
