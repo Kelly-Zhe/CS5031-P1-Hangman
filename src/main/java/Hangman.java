@@ -16,7 +16,7 @@ public class Hangman {
 
         boolean correct;
 
-        if (opts.wordsource == "") {
+        if (opts.wordsource.equals("")) {
 
             System.out.println("  1. Counties");
             System.out.println("  2. Countries");

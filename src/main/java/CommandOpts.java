@@ -1,8 +1,6 @@
 public class CommandOpts {
-
     public int maxguesses;
     public int maxhints;
-
     String wordsource;
 
     CommandOpts(String[] args) {

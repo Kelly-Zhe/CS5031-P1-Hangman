@@ -16,6 +16,8 @@ public class CommandOptsTest {
 	public void optionsFailTest(){
 		String[] args = { "--guesses", "", "--hints", "", "" };
 		CommandOpts opts = new CommandOpts(args);
+		assertEquals(opts.maxguesses, 10);
+		assertEquals(opts.maxhints, 2);
 	}
 
 }
