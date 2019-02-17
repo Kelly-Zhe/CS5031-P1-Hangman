@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Hangman {
@@ -22,8 +23,23 @@ public class Hangman {
             System.out.println("  3. Cities");
 
             System.out.print("Pick a category:");
+            String word = null;
+            int category;
+            while (true){
+                try {
+                    category = sc.nextInt();
+                    if (category > 0 && category < 4){
+                        word = Words.randomWord(category);
+                        break;
+                    } else {
+                        System.out.println("please enter valid number(1-3).");
+                    }
+                }catch (InputMismatchException e){
+                    System.out.println("please enter valid number(1-3).");
+                }
+            }
 
-            gameState = new GameState(Words.randomWord(sc.nextInt()), opts.maxguesses, opts.maxhints);
+            gameState = new GameState(word, opts.maxguesses, opts.maxhints);
         } else {
             gameState = new GameState(Words.randomWord(opts.wordsource), opts.maxguesses, opts.maxhints);
         }
@@ -31,7 +47,7 @@ public class Hangman {
         while (!gameState.won() && !gameState.lost()) {
             gameState.showWord(gameState.word);
 
-            System.out.println("Guesses remaining: " + gameState.wrong);
+            System.out.println("Guesses remaining: " + gameState.GuessesWrong);
 
             correct = gameState.guessLetter();
 

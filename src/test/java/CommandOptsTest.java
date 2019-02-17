@@ -12,5 +12,10 @@ public class CommandOptsTest {
 		assertEquals(opts.maxhints, 4);
 		assertEquals(opts.wordsource, "words.txt");
 	}
+	@Test(expected = NumberFormatException.class)
+	public void optionsFailTest(){
+		String[] args = { "--guesses", "", "--hints", "", "" };
+		CommandOpts opts = new CommandOpts(args);
+	}
 
 }
