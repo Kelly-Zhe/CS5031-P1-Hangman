@@ -6,25 +6,20 @@ import java.util.regex.Pattern;
 
 public class Words {
 
-    static String[] countiesList = {"Argyll and Bute", "Caithness", "Kingdom of Fife",
-            "East Lothian", "Highland", "Dumfries and Galloway",
-            "Renfrewshire", "Scottish Borders", "Perth and Kinross"};
-    static String[] countriesList = {"Scotland", "England", "Wales", "Northern Ireland", "Ireland",
-            "France", "Germany", "Netherlands", "Spain", "Portugal",
-            "Belgium", "Luxembourg", "Switzerland", "Italy", "Greece"};
-    static String[] citiesList = {"St Andrews", "Edinburgh", "Glasgow", "Kirkcaldy", "Perth",
-            "Dundee", "Stirling", "Inverness", "Aberdeen", "Falkirk"};
+    static String[] countiesList = {"Argyll and Bute", "Caithness", "Kingdom of Fife", "East Lothian", "Highland", "Dumfries and Galloway", "Renfrewshire", "Scottish Borders", "Perth and Kinross"};
+    static String[] countriesList = {"Scotland", "England", "Wales", "Northern Ireland", "Ireland", "France", "Germany", "Netherlands", "Spain", "Portugal", "Belgium", "Luxembourg", "Switzerland", "Italy", "Greece"};
+    static String[] citiesList = {"St Andrews", "Edinburgh", "Glasgow", "Kirkcaldy", "Perth", "Dundee", "Stirling", "Inverness", "Aberdeen", "Falkirk"};
 
     static ArrayList<String> customwords;
 
     public static String randomWord(int category) {
-        if (category == 1)
+        if (category == 1) {
             return countiesList[(int) (Math.random() * countiesList.length)];
-        else if (category == 2)
+        } else if (category == 2) {
             return countriesList[(int) (Math.random() * countriesList.length)];
-        else if (category == 3)
+        } else if (category == 3) {
             return citiesList[(int) (Math.random() * citiesList.length)];
-        else {
+        } else {
             System.out.println("Please enter a valid number.");
             return "";
         }
@@ -43,9 +38,11 @@ public class Words {
             while ((line = reader.readLine()) != null) {
                 Matcher matcher = p.matcher(line);
                 valid = matcher.matches();
-                if (valid)
+                if (valid) {
                     customwords.add(line);
-                else return null;
+                } else {
+                    return null;
+                }
             }
             return customwords.get((int) (Math.random() * customwords.size()));
         } catch (FileNotFoundException e) {

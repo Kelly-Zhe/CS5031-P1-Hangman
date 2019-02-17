@@ -8,13 +8,6 @@ import static org.junit.Assert.*;
 
 public class gameStateTest {
 
-//    String dundee = "Dundee";
-//    String edinburgh = "Edinburgh";
-//    String perthAndKinrosse = "Prth and Kinross";
-//    String theUK = "the uk";
-//    GameState game,game2;
-//    ArrayList<Character> GuessedLetter;
-
     @Test
     public void wordShowTest() {
 //        CommandOpts opts = new CommandOpts(new String[]{});
@@ -25,7 +18,7 @@ public class gameStateTest {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
         gameState.showWord("England");
-        assertThat(out.toString(),containsString("E---a--"));
+        assertThat(out.toString(), containsString("E---a--"));
     }
 
     @Test
@@ -36,7 +29,7 @@ public class gameStateTest {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
         gameState.hint();
-        assertThat(out.toString(),containsString("No more hints allowed"));
+        assertThat(out.toString(), containsString("No more hints allowed"));
     }
 
     @Test

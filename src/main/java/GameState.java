@@ -16,14 +16,18 @@ public class GameState {
 
     public Scanner sc = new Scanner(System.in, "UTF-8").useDelimiter("\n");
 
+    /*
+
+     */
     public GameState(String target, int maxguesses, int maxhints) {
         this.word = target;
         notGuessedLetter = new ArrayList<Character>();
         guessedLetter = new ArrayList<Character>();
 
         for (int i = 0; i < target.length(); ++i) {
-            if (!notGuessedLetter.contains(Character.toLowerCase(target.charAt(i))))
+            if (!notGuessedLetter.contains(Character.toLowerCase(target.charAt(i)))) {
                 notGuessedLetter.add(Character.toLowerCase(target.charAt(i)));
+            }
         }
         hintsLetter = new ArrayList<>(notGuessedLetter);
 
@@ -36,9 +40,9 @@ public class GameState {
         for (int i = 0; i < word.length(); ++i) {
             if (guessedLetter.contains(word.charAt(i))) {
                 System.out.print(word.charAt(i));
-            }  else if(word.charAt(i) == ' '){
+            } else if (word.charAt(i) == ' ') {
                 System.out.print(" ");
-            }else{
+            } else {
                 System.out.print("-");
             }
         }
@@ -55,7 +59,7 @@ public class GameState {
         Matcher matcher = pattern.matcher(str);
 
 
-        if (!matcher.matches()){
+        if (!matcher.matches()) {
             System.out.println("Enter a valid letter/word");
             return guessLetter();
         }
@@ -84,13 +88,12 @@ public class GameState {
                 guessedLetter.add(notGuessedLetter.get(i));
                 notGuessedLetter.remove(i);
                 guessesTook++;
-                if (hintsLetter.contains(letter)){
+                if (hintsLetter.contains(letter)) {
                     hintsLetter.remove(notGuessedLetter.get(i));
                 }
                 return true;
             }
         }
-
         guessesTook++; // One more guess
         guessesWrong--;
         return false;

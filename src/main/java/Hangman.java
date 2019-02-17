@@ -25,16 +25,16 @@ public class Hangman {
             System.out.print("Pick a category:");
             String word = null;
             int category;
-            while (word == null){
+            while (word == null) {
                 try {
                     category = sc.nextInt();
-                    if (category > 0 && category < 4){
+                    if (category > 0 && category < 4) {
                         word = Words.randomWord(category);
                         break;
                     } else {
                         System.out.println("please enter valid number(1-3).");
                     }
-                }catch (InputMismatchException e){
+                } catch (InputMismatchException e) {
                     System.out.println("please enter valid number(1-3).");
                     sc.nextLine();
                 }
@@ -52,8 +52,12 @@ public class Hangman {
 
             correct = gamestate.guessLetter();
 
-            if (correct) System.out.println("Good guess!");
-            if (!correct) System.out.println("Wrong guess!");
+            if (correct) {
+                System.out.println("Good guess!");
+            }
+            if (!correct) {
+                System.out.println("Wrong guess!");
+            }
         }
 
         if (gamestate.won()) {
