@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
-public class WordsTest {
+public class wordsTest {
 
     @Test
     public void randomCategoryTest() {
