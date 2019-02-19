@@ -16,9 +16,6 @@ public class GameState {
 
     public Scanner sc = new Scanner(System.in, "UTF-8").useDelimiter("\n");
 
-    /*
-
-     */
     public GameState(String target, int maxguesses, int maxhints) {
         this.word = target;
         notGuessedLetter = new ArrayList<Character>();

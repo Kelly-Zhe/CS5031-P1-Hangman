@@ -32,9 +32,7 @@ public class Words {
         boolean valid;
 
         try {
-            //FileReader file = new FileReader(wordsource);
             BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(wordsource), StandardCharsets.UTF_8));
-            // BufferedReader reader = new BufferedReader(file);
             while ((line = reader.readLine()) != null) {
                 Matcher matcher = p.matcher(line);
                 valid = matcher.matches();

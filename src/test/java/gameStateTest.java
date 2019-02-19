@@ -10,8 +10,6 @@ public class gameStateTest {
 
     @Test
     public void wordShowTest() {
-//        CommandOpts opts = new CommandOpts(new String[]{});
-//        Words words = new Words();
         GameState gameState = new GameState("England", 10, 2);
         gameState.guessedLetter.add('E');
         gameState.guessedLetter.add('a');
@@ -23,8 +21,6 @@ public class gameStateTest {
 
     @Test
     public void noHintsLeftTest() {
-//        CommandOpts opts = new CommandOpts(new String[]{});
-//        Words words = new Words();
         GameState gameState = new GameState("England", 10, 0);
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
@@ -34,8 +30,6 @@ public class gameStateTest {
 
     @Test
     public void gameWonTest() {
-//        CommandOpts opts = new CommandOpts(new String[]{});
-//        Words words = new Words();
         GameState gameState = new GameState("England", 10, 0);
         gameState.notGuessedLetter.clear();
         assertTrue(gameState.won());
@@ -43,8 +37,6 @@ public class gameStateTest {
 
     @Test
     public void gameLostTest() {
-//        CommandOpts opts = new CommandOpts(new String[]{});
-//        Words words = new Words();
         GameState gameState = new GameState("England", 10, 0);
         gameState.guessesWrong = 0;
         assertTrue(gameState.lost());
